@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Desktop/num.R.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="r">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="torte">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #cccccc; background-color: #000000; }
+body { font-family: monospace; color: #cccccc; background-color: #000000; }
+* { font-size: 1em; }
+.Constant { color: #ffa0a0; }
+.LineNr { color: #ffff00; }
+.Special { color: #ffa500; }
+.Comment { color: #80a0ff; }
+.Statement { color: #ffff00; }
+.Type { color: #60ff60; }
+.Error { color: #ffffff; background-color: #ff0000; padding-bottom: 1px; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr">  1 </span>
+<span id="L2" class="LineNr">  2 </span><span class="Comment"># The total number of certicates in two solutions</span>
+<span id="L3" class="LineNr">  3 </span>total_num_dttm <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L4" class="LineNr">  4 </span><span class="Special">{</span>
+<span id="L5" class="LineNr">  5 </span>
+<span id="L6" class="LineNr">  6 </span>    num <span class="Statement">&lt;-</span> N <span class="Statement">*</span> <span class="Constant">100</span> <span class="Statement">/</span> <span class="Special">(</span>beta <span class="Statement">*</span> k<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>N <span class="Statement">*</span> <span class="Special">(</span>k <span class="Statement">-</span> <span class="Constant">1</span><span class="Special">))</span> <span class="Statement">+</span> <span class="Special">(</span>beta <span class="Statement">/</span> <span class="Constant">100</span><span class="Special">)</span> <span class="Statement">*</span> p <span class="Statement">*</span> N<span class="Statement">^</span><span class="Constant">2</span> <span class="Statement">+</span> k<span class="Statement">^</span><span class="Constant">2</span> <span class="Statement">*</span> <span class="Special">(</span>k <span class="Statement">-</span> <span class="Constant">1</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>beta <span class="Statement">/</span> <span class="Constant">100</span><span class="Special">)</span> <span class="Statement">*</span> p <span class="Statement">*</span> N<span class="Statement">^</span><span class="Constant">2</span>
+<span id="L7" class="LineNr">  7 </span>
+<span id="L8" class="LineNr">  8 </span>    <span class="Statement">return</span> <span class="Special">(</span>num<span class="Special">)</span>
+<span id="L9" class="LineNr">  9 </span><span class="Special">}</span>
+<span id="L10" class="LineNr"> 10 </span>
+<span id="L11" class="LineNr"> 11 </span>total_num_ttm <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L12" class="LineNr"> 12 </span><span class="Special">{</span>
+<span id="L13" class="LineNr"> 13 </span>    num <span class="Statement">&lt;-</span> <span class="Special">(</span>N <span class="Statement">*</span> <span class="Constant">100</span> <span class="Statement">/</span> beta<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Constant">2</span> <span class="Statement">*</span> beta <span class="Statement">/</span> <span class="Constant">100</span><span class="Special">)</span> <span class="Statement">*</span> p <span class="Statement">*</span> N<span class="Statement">^</span><span class="Constant">2</span>
+<span id="L14" class="LineNr"> 14 </span>
+<span id="L15" class="LineNr"> 15 </span>    <span class="Statement">return</span><span class="Special">(</span>num<span class="Special">)</span>
+<span id="L16" class="LineNr"> 16 </span><span class="Special">}</span>
+<span id="L17" class="LineNr"> 17 </span>
+<span id="L18" class="LineNr"> 18 </span><span class="Comment"># The number of certificates hold by single normal node</span>
+<span id="L19" class="LineNr"> 19 </span>num_dttm_single_normal_node <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L20" class="LineNr"> 20 </span><span class="Special">{</span>
+<span id="L21" class="LineNr"> 21 </span>    num <span class="Statement">&lt;-</span> <span class="Constant">100</span> <span class="Statement">/</span> <span class="Special">(</span>beta <span class="Statement">*</span> k<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>k <span class="Statement">-</span> <span class="Constant">1</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>p <span class="Statement">*</span> N <span class="Statement">*</span> beta <span class="Statement">/</span> <span class="Constant">100</span><span class="Special">)</span>
+<span id="L22" class="LineNr"> 22 </span>
+<span id="L23" class="LineNr"> 23 </span>    <span class="Statement">return</span> <span class="Special">(</span>num<span class="Special">)</span>
+<span id="L24" class="LineNr"> 24 </span><span class="Special">}</span>
+<span id="L25" class="LineNr"> 25 </span>
+<span id="L26" class="LineNr"> 26 </span>num_ttm_single_normal_node <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L27" class="LineNr"> 27 </span><span class="Special">{</span>
+<span id="L28" class="LineNr"> 28 </span>    num <span class="Statement">&lt;-</span> <span class="Special">(</span><span class="Constant">100</span> <span class="Statement">/</span> beta<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>p <span class="Statement">*</span> N <span class="Statement">*</span> beta <span class="Statement">/</span> <span class="Constant">100</span><span class="Special">)</span>
+<span id="L29" class="LineNr"> 29 </span>
+<span id="L30" class="LineNr"> 30 </span>    <span class="Statement">return</span><span class="Special">(</span>num<span class="Special">)</span>
+<span id="L31" class="LineNr"> 31 </span><span class="Special">}</span>
+<span id="L32" class="LineNr"> 32 </span>
+<span id="L33" class="LineNr"> 33 </span><span class="Comment"># The number of certificates hold by single hub node</span>
+<span id="L34" class="LineNr"> 34 </span>num_dttm_single_hub_node <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L35" class="LineNr"> 35 </span><span class="Special">{</span>
+<span id="L36" class="LineNr"> 36 </span>    num <span class="Statement">&lt;-</span> <span class="Special">(</span>k <span class="Statement">-</span> <span class="Constant">1</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>p <span class="Statement">*</span> N <span class="Statement">/</span> k<span class="Special">)</span>
+<span id="L37" class="LineNr"> 37 </span>
+<span id="L38" class="LineNr"> 38 </span>    <span class="Statement">return</span> <span class="Special">(</span>num<span class="Special">)</span>
+<span id="L39" class="LineNr"> 39 </span><span class="Special">}</span>
+<span id="L40" class="LineNr"> 40 </span>
+<span id="L41" class="LineNr"> 41 </span>
+<span id="L42" class="LineNr"> 42 </span>num_ttm_single_hub_node <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">(</span>N<span class="Special">,</span> beta <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> p <span class="Statement">=</span> <span class="Constant">0.3</span><span class="Special">,</span> k <span class="Statement">=</span> <span class="Constant">8</span><span class="Special">)</span>
+<span id="L43" class="LineNr"> 43 </span><span class="Special">{</span>
+<span id="L44" class="LineNr"> 44 </span>    num <span class="Statement">&lt;-</span> <span class="Special">(</span>p <span class="Statement">*</span> N<span class="Special">)</span>
+<span id="L45" class="LineNr"> 45 </span>
+<span id="L46" class="LineNr"> 46 </span>    <span class="Statement">return</span> <span class="Special">(</span>num<span class="Special">)</span>
+<span id="L47" class="LineNr"> 47 </span><span class="Error">}</span>
+<span id="L48" class="LineNr"> 48 </span>
+<span id="L49" class="LineNr"> 49 </span>
+<span id="L50" class="LineNr"> 50 </span><span class="Comment">######################################################################</span>
+<span id="L51" class="LineNr"> 51 </span><span class="Comment"># function name: plot_total_num</span>
+<span id="L52" class="LineNr"> 52 </span><span class="Comment"># parameters: none</span>
+<span id="L53" class="LineNr"> 53 </span><span class="Comment"># description: plot a figure for comparing num_dttm and num_ttm</span>
+<span id="L54" class="LineNr"> 54 </span><span class="Comment"># Date: 27 March, 2014.</span>
+<span id="L55" class="LineNr"> 55 </span><span class="Comment">######################################################################</span>
+<span id="L56" class="LineNr"> 56 </span>plot_total_num <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">()</span>
+<span id="L57" class="LineNr"> 57 </span><span class="Special">{</span>
+<span id="L58" class="LineNr"> 58 </span>    x1 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L59" class="LineNr"> 59 </span>    y1 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L60" class="LineNr"> 60 </span>
+<span id="L61" class="LineNr"> 61 </span>    x2 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L62" class="LineNr"> 62 </span>    y2 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L63" class="LineNr"> 63 </span>
+<span id="L64" class="LineNr"> 64 </span>    index <span class="Statement">=</span> <span class="Constant">25000</span>
+<span id="L65" class="LineNr"> 65 </span>    i <span class="Statement">=</span> <span class="Constant">1</span>
+<span id="L66" class="LineNr"> 66 </span>    <span class="Statement">while</span><span class="Special">(</span>index <span class="Statement">&lt;=</span> <span class="Constant">65000</span><span class="Special">)</span>
+<span id="L67" class="LineNr"> 67 </span>    <span class="Special">{</span>
+<span id="L68" class="LineNr"> 68 </span>        print<span class="Special">(</span>total_num_dttm<span class="Special">(</span>index<span class="Special">))</span>
+<span id="L69" class="LineNr"> 69 </span>
+<span id="L70" class="LineNr"> 70 </span>        x1<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L71" class="LineNr"> 71 </span>        y1<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> total_num_dttm<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L72" class="LineNr"> 72 </span>
+<span id="L73" class="LineNr"> 73 </span>        x2<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L74" class="LineNr"> 74 </span>        y2<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> total_num_ttm<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L75" class="LineNr"> 75 </span>
+<span id="L76" class="LineNr"> 76 </span>        i <span class="Statement">=</span> i <span class="Statement">+</span> <span class="Constant">1</span>
+<span id="L77" class="LineNr"> 77 </span>        index <span class="Statement">=</span> index <span class="Statement">+</span> <span class="Constant">5000</span>
+<span id="L78" class="LineNr"> 78 </span>    <span class="Error">}</span>
+<span id="L79" class="LineNr"> 79 </span>
+<span id="L80" class="LineNr"> 80 </span>    <span class="Comment"># Calculate range from min to max value of y1 and y2</span>
+<span id="L81" class="LineNr"> 81 </span>    g_range <span class="Statement">&lt;-</span> range<span class="Special">(</span>y1<span class="Special">,</span> y2<span class="Special">)</span>
+<span id="L82" class="LineNr"> 82 </span>    print<span class="Special">(</span><span class="Constant">&quot;g_range&quot;</span><span class="Special">)</span>
+<span id="L83" class="LineNr"> 83 </span>    print<span class="Special">(</span>g_range<span class="Special">)</span>
+<span id="L84" class="LineNr"> 84 </span>
+<span id="L85" class="LineNr"> 85 </span>    print<span class="Special">(</span><span class="Constant">&quot;x1&quot;</span><span class="Special">)</span>
+<span id="L86" class="LineNr"> 86 </span>    print<span class="Special">(</span>x1<span class="Special">)</span>
+<span id="L87" class="LineNr"> 87 </span>    print<span class="Special">(</span><span class="Constant">&quot;y1&quot;</span><span class="Special">)</span>
+<span id="L88" class="LineNr"> 88 </span>    print<span class="Special">(</span>y1<span class="Special">)</span>
+<span id="L89" class="LineNr"> 89 </span>    print<span class="Special">(</span><span class="Constant">&quot;y2&quot;</span><span class="Special">)</span>
+<span id="L90" class="LineNr"> 90 </span>    print<span class="Special">(</span>y2<span class="Special">)</span>
+<span id="L91" class="LineNr"> 91 </span>
+<span id="L92" class="LineNr"> 92 </span>    <span class="Comment"># Graph autos using y axis that ranges from 0 to max value in y1 or y2 vector.  </span>
+<span id="L93" class="LineNr"> 93 </span>    <span class="Comment"># Turn off axes and annotations (axis labels) so we can specify them ourself</span>
+<span id="L94" class="LineNr"> 94 </span>    plot<span class="Special">(</span>y1<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;b&quot;</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;blue&quot;</span><span class="Special">,</span> ylim <span class="Statement">=</span> g_range<span class="Special">,</span> axes <span class="Statement">=</span> <span class="Constant">FALSE</span><span class="Special">,</span> ann <span class="Statement">=</span> <span class="Constant">FALSE</span><span class="Special">)</span>
+<span id="L95" class="LineNr"> 95 </span>
+<span id="L96" class="LineNr"> 96 </span>    x_coordinate <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L97" class="LineNr"> 97 </span>
+<span id="L98" class="LineNr"> 98 </span>    <span class="Statement">for</span><span class="Special">(</span>index <span class="Statement">in</span> <span class="Constant">1</span><span class="Special">:</span>length<span class="Special">(</span>x1<span class="Special">))</span>
+<span id="L99" class="LineNr"> 99 </span>    <span class="Special">{</span>
+<span id="L100" class="LineNr">100 </span>        x_coordinate<span class="Special">[</span>index<span class="Special">]</span> <span class="Statement">&lt;-</span> x1<span class="Special">[</span>index<span class="Special">]</span> <span class="Statement">/</span> <span class="Constant">1000</span>
+<span id="L101" class="LineNr">101 </span>    <span class="Special">}</span>
+<span id="L102" class="LineNr">102 </span>
+<span id="L103" class="LineNr">103 </span>    axis<span class="Special">(</span><span class="Constant">1</span><span class="Special">,</span> at <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">:</span>length<span class="Special">(</span>x_coordinate<span class="Special">)</span><span class="Special">,</span> labels <span class="Statement">=</span> x_coordinate<span class="Special">)</span>
+<span id="L104" class="LineNr">104 </span>
+<span id="L105" class="LineNr">105 </span>    <span class="Comment"># Make y axis with horizontal labels that display ticks at every 4 marks. 4*0:g_range[2] is equivalent to c(0,4,8,12).</span>
+<span id="L106" class="LineNr">106 </span>    axis<span class="Special">(</span><span class="Constant">2</span><span class="Special">,</span> las <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">,</span> at <span class="Statement">=</span> <span class="Constant">10000000</span><span class="Statement">*</span><span class="Constant">0</span><span class="Special">:</span>g_range<span class="Special">[</span><span class="Constant">2</span><span class="Special">])</span>
+<span id="L107" class="LineNr">107 </span>
+<span id="L108" class="LineNr">108 </span>    <span class="Comment"># Create box around plot</span>
+<span id="L109" class="LineNr">109 </span>    box<span class="Special">()</span>
+<span id="L110" class="LineNr">110 </span>
+<span id="L111" class="LineNr">111 </span>    <span class="Comment"># Graph y2 with red dashed line and square points</span>
+<span id="L112" class="LineNr">112 </span>    lines<span class="Special">(</span>y2<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;o&quot;</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">22</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">2</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;red&quot;</span><span class="Special">)</span>
+<span id="L113" class="LineNr">113 </span>
+<span id="L114" class="LineNr">114 </span>    <span class="Comment"># Create a title with a red, bold/italic font</span>
+<span id="L115" class="LineNr">115 </span>    title<span class="Special">(</span>main <span class="Statement">=</span> <span class="Constant">&quot;The total number of certicates in two solutions&quot;</span><span class="Special">,</span> col.main <span class="Statement">=</span> <span class="Constant">&quot;red&quot;</span><span class="Special">,</span> font.main <span class="Statement">=</span> <span class="Constant">4</span><span class="Special">)</span>
+<span id="L116" class="LineNr">116 </span>
+<span id="L117" class="LineNr">117 </span>    <span class="Comment"># Label the x and y axes with dark green text</span>
+<span id="L118" class="LineNr">118 </span>    title<span class="Special">(</span>xlab <span class="Statement">=</span> <span class="Constant">&quot;N (K)&quot;</span><span class="Special">,</span> col.lab <span class="Statement">=</span> rgb<span class="Special">(</span><span class="Constant">0</span><span class="Special">,</span> <span class="Constant">0.5</span><span class="Special">,</span> <span class="Constant">0</span><span class="Special">))</span>
+<span id="L119" class="LineNr">119 </span>    title<span class="Special">(</span>ylab <span class="Statement">=</span> <span class="Constant">&quot;Num (K)&quot;</span><span class="Special">,</span> col.lab <span class="Statement">=</span> rgb<span class="Special">(</span><span class="Constant">0</span><span class="Special">,</span> <span class="Constant">0.5</span><span class="Special">,</span> <span class="Constant">0</span><span class="Special">))</span>
+<span id="L120" class="LineNr">120 </span>
+<span id="L121" class="LineNr">121 </span>    <span class="Comment"># Create a legend at (25000, g_range[2]) that is slightly smaller (cex) and uses the same line colors and points used by the actual plots</span>
+<span id="L122" class="LineNr">122 </span>    legend<span class="Special">(</span><span class="Constant">25000</span><span class="Special">,</span> g_range<span class="Special">[</span><span class="Constant">2</span><span class="Special">]</span><span class="Special">,</span> c<span class="Special">(</span><span class="Constant">&quot;total_num_dttm&quot;</span><span class="Special">,</span> <span class="Constant">&quot;total_num_ttm&quot;</span><span class="Special">)</span><span class="Special">,</span> cex <span class="Statement">=</span> <span class="Constant">0.7</span><span class="Special">,</span> col <span class="Statement">=</span> c<span class="Special">(</span><span class="Constant">&quot;blue&quot;</span><span class="Special">,</span> <span class="Constant">&quot;red&quot;</span><span class="Special">)</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">21</span><span class="Special">:</span><span class="Constant">22</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">:</span><span class="Constant">2</span><span class="Special">)</span><span class="Special">;</span>
+<span id="L123" class="LineNr">123 </span><span class="Error">}</span>
+<span id="L124" class="LineNr">124 </span>
+<span id="L125" class="LineNr">125 </span><span class="Comment">######################################################################</span>
+<span id="L126" class="LineNr">126 </span><span class="Comment"># function name: plot_num</span>
+<span id="L127" class="LineNr">127 </span><span class="Comment"># parameters: none</span>
+<span id="L128" class="LineNr">128 </span><span class="Comment"># description: plot a figure for comparing num_dttm and num_ttm from </span>
+<span id="L129" class="LineNr">129 </span><span class="Comment">#              single normal node and single hub node</span>
+<span id="L130" class="LineNr">130 </span><span class="Comment"># Date: 27 March, 2014.</span>
+<span id="L131" class="LineNr">131 </span><span class="Comment">######################################################################</span>
+<span id="L132" class="LineNr">132 </span>plot_num <span class="Statement">&lt;-</span> <span class="Type">function</span><span class="Special">()</span>
+<span id="L133" class="LineNr">133 </span><span class="Special">{</span>
+<span id="L134" class="LineNr">134 </span>    x1 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L135" class="LineNr">135 </span>    y1 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L136" class="LineNr">136 </span>
+<span id="L137" class="LineNr">137 </span>    x2 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L138" class="LineNr">138 </span>    y2 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L139" class="LineNr">139 </span>
+<span id="L140" class="LineNr">140 </span>    x3 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L141" class="LineNr">141 </span>    y3 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L142" class="LineNr">142 </span>
+<span id="L143" class="LineNr">143 </span>    x4 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L144" class="LineNr">144 </span>    y4 <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L145" class="LineNr">145 </span>
+<span id="L146" class="LineNr">146 </span>    index <span class="Statement">=</span> <span class="Constant">25000</span>
+<span id="L147" class="LineNr">147 </span>    i <span class="Statement">=</span> <span class="Constant">1</span>
+<span id="L148" class="LineNr">148 </span>    <span class="Statement">while</span><span class="Special">(</span>index <span class="Statement">&lt;=</span> <span class="Constant">65000</span><span class="Special">)</span>
+<span id="L149" class="LineNr">149 </span>    <span class="Special">{</span>
+<span id="L150" class="LineNr">150 </span>        x1<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L151" class="LineNr">151 </span>        y1<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> num_dttm_single_normal_node<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L152" class="LineNr">152 </span>
+<span id="L153" class="LineNr">153 </span>        x2<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L154" class="LineNr">154 </span>        y2<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> num_ttm_single_normal_node<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L155" class="LineNr">155 </span>
+<span id="L156" class="LineNr">156 </span>        x3<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L157" class="LineNr">157 </span>        y3<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> num_dttm_single_hub_node<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L158" class="LineNr">158 </span>
+<span id="L159" class="LineNr">159 </span>        x4<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> index
+<span id="L160" class="LineNr">160 </span>        y4<span class="Special">[</span>i<span class="Special">]</span> <span class="Statement">&lt;-</span> num_ttm_single_hub_node<span class="Special">(</span>index<span class="Special">)</span>
+<span id="L161" class="LineNr">161 </span>
+<span id="L162" class="LineNr">162 </span>        i <span class="Statement">=</span> i <span class="Statement">+</span> <span class="Constant">1</span>
+<span id="L163" class="LineNr">163 </span>        index <span class="Statement">=</span> index <span class="Statement">+</span> <span class="Constant">5000</span>
+<span id="L164" class="LineNr">164 </span>    <span class="Special">}</span>
+<span id="L165" class="LineNr">165 </span>
+<span id="L166" class="LineNr">166 </span>    print<span class="Special">(</span>x1<span class="Special">)</span>
+<span id="L167" class="LineNr">167 </span>    print<span class="Special">(</span>y1<span class="Special">)</span>
+<span id="L168" class="LineNr">168 </span>    print<span class="Special">(</span>y2<span class="Special">)</span>
+<span id="L169" class="LineNr">169 </span>    print<span class="Special">(</span>y3<span class="Special">)</span>
+<span id="L170" class="LineNr">170 </span>    print<span class="Special">(</span>y4<span class="Special">)</span>
+<span id="L171" class="LineNr">171 </span>
+<span id="L172" class="LineNr">172 </span>    g_range <span class="Statement">&lt;-</span> range<span class="Special">(</span>y1<span class="Special">,</span> y2<span class="Special">,</span> y3<span class="Special">,</span> y4<span class="Special">)</span>
+<span id="L173" class="LineNr">173 </span>
+<span id="L174" class="LineNr">174 </span>    <span class="Comment"># Graph autos using y axis that ranges from 0 to max value in y1 or y2 vector.  </span>
+<span id="L175" class="LineNr">175 </span>    <span class="Comment"># Turn off axes and annotations (axis labels) so we can specify them ourself    </span>
+<span id="L176" class="LineNr">176 </span>    plot<span class="Special">(</span>y1<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;b&quot;</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;blue&quot;</span><span class="Special">,</span> ylim <span class="Statement">=</span> g_range<span class="Special">,</span> axes <span class="Statement">=</span> <span class="Constant">FALSE</span><span class="Special">,</span> ann <span class="Statement">=</span> <span class="Constant">FALSE</span><span class="Special">)</span>
+<span id="L177" class="LineNr">177 </span>
+<span id="L178" class="LineNr">178 </span>    <span class="Comment"># Make x axis using Mon-Fri labels</span>
+<span id="L179" class="LineNr">179 </span>    x_coordinate <span class="Statement">&lt;-</span> <span class="Type">vector</span><span class="Special">()</span>
+<span id="L180" class="LineNr">180 </span>
+<span id="L181" class="LineNr">181 </span>    <span class="Statement">for</span><span class="Special">(</span>index <span class="Statement">in</span> <span class="Constant">1</span><span class="Special">:</span>length<span class="Special">(</span>x1<span class="Special">))</span>
+<span id="L182" class="LineNr">182 </span>    <span class="Special">{</span>
+<span id="L183" class="LineNr">183 </span>        x_coordinate<span class="Special">[</span>index<span class="Special">]</span> <span class="Statement">&lt;-</span> x1<span class="Special">[</span>index<span class="Special">]</span> <span class="Statement">/</span> <span class="Constant">1000</span>
+<span id="L184" class="LineNr">184 </span>    <span class="Special">}</span>
+<span id="L185" class="LineNr">185 </span>
+<span id="L186" class="LineNr">186 </span>    axis<span class="Special">(</span><span class="Constant">1</span><span class="Special">,</span> at <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">:</span>length<span class="Special">(</span>x_coordinate<span class="Special">)</span><span class="Special">,</span> labels <span class="Statement">=</span> x_coordinate<span class="Special">)</span>
+<span id="L187" class="LineNr">187 </span>
+<span id="L188" class="LineNr">188 </span>    <span class="Comment"># Make y axis with horizontal labels that display ticks at every 5000 marks. 5000*0:g_range[2] is equivalent to c(0, 5000, 10000, 15000).</span>
+<span id="L189" class="LineNr">189 </span>    axis<span class="Special">(</span><span class="Constant">2</span><span class="Special">,</span> las <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">,</span> at <span class="Statement">=</span> <span class="Constant">5000</span> <span class="Statement">*</span> <span class="Constant">0</span><span class="Special">:</span>g_range<span class="Special">[</span><span class="Constant">2</span><span class="Special">])</span>
+<span id="L190" class="LineNr">190 </span>
+<span id="L191" class="LineNr">191 </span>    <span class="Comment"># Create box around plot</span>
+<span id="L192" class="LineNr">192 </span>    box<span class="Special">()</span>
+<span id="L193" class="LineNr">193 </span>
+<span id="L194" class="LineNr">194 </span>    <span class="Comment"># Graph trucks with red dashed line and square points</span>
+<span id="L195" class="LineNr">195 </span>    lines<span class="Special">(</span>y2<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;o&quot;</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">22</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">2</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;red&quot;</span><span class="Special">)</span>
+<span id="L196" class="LineNr">196 </span>    lines<span class="Special">(</span>y3<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;o&quot;</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">23</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">3</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;green&quot;</span><span class="Special">)</span>
+<span id="L197" class="LineNr">197 </span>    lines<span class="Special">(</span>y4<span class="Special">,</span> type <span class="Statement">=</span> <span class="Constant">&quot;o&quot;</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">24</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">4</span><span class="Special">,</span> col <span class="Statement">=</span> <span class="Constant">&quot;black&quot;</span><span class="Special">)</span>
+<span id="L198" class="LineNr">198 </span>
+<span id="L199" class="LineNr">199 </span>    <span class="Comment"># Create a title with a red, bold/italic font</span>
+<span id="L200" class="LineNr">200 </span>    title<span class="Special">(</span>main <span class="Statement">=</span> <span class="Constant">&quot;The number of certificates hold by single normal node and single hub node&quot;</span><span class="Special">,</span> col.main <span class="Statement">=</span> <span class="Constant">&quot;red&quot;</span><span class="Special">,</span> font.main <span class="Statement">=</span> <span class="Constant">4</span><span class="Special">)</span>
+<span id="L201" class="LineNr">201 </span>
+<span id="L202" class="LineNr">202 </span>    <span class="Comment"># Label the x and y axes with dark green text</span>
+<span id="L203" class="LineNr">203 </span>    title<span class="Special">(</span>xlab <span class="Statement">=</span> <span class="Constant">&quot;N (K)&quot;</span><span class="Special">,</span> col.lab <span class="Statement">=</span> rgb<span class="Special">(</span><span class="Constant">0</span><span class="Special">,</span> <span class="Constant">0.5</span><span class="Special">,</span> <span class="Constant">0</span><span class="Special">))</span>
+<span id="L204" class="LineNr">204 </span>    title<span class="Special">(</span>ylab <span class="Statement">=</span> <span class="Constant">&quot;Num (K)&quot;</span><span class="Special">,</span> col.lab <span class="Statement">=</span> rgb<span class="Special">(</span><span class="Constant">0</span><span class="Special">,</span> <span class="Constant">0.5</span><span class="Special">,</span> <span class="Constant">0</span><span class="Special">))</span>
+<span id="L205" class="LineNr">205 </span>
+<span id="L206" class="LineNr">206 </span>    <span class="Comment"># Create a legend at (1, g_range[2]) that is slightly smaller (cex) and uses the same line colors and points used by the actual plots</span>
+<span id="L207" class="LineNr">207 </span>    legend<span class="Special">(</span><span class="Constant">1</span><span class="Special">,</span> g_range<span class="Special">[</span><span class="Constant">2</span><span class="Special">]</span><span class="Special">,</span> c<span class="Special">(</span><span class="Constant">&quot;num_dttm_single_normal_node&quot;</span><span class="Special">,</span> <span class="Constant">&quot;num_ttm_single_normal_node&quot;</span><span class="Special">,</span> <span class="Constant">&quot;num_dttm_single_hub_node&quot;</span><span class="Special">,</span> <span class="Constant">&quot;num_ttm_single_hub_node&quot;</span><span class="Special">)</span><span class="Special">,</span> cex <span class="Statement">=</span> <span class="Constant">0.7</span><span class="Special">,</span> col <span class="Statement">=</span> c<span class="Special">(</span><span class="Constant">&quot;blue&quot;</span><span class="Special">,</span> <span class="Constant">&quot;red&quot;</span><span class="Special">,</span> <span class="Constant">&quot;green&quot;</span><span class="Special">,</span> <span class="Constant">&quot;black&quot;</span><span class="Special">)</span><span class="Special">,</span> pch <span class="Statement">=</span> <span class="Constant">21</span><span class="Special">:</span><span class="Constant">24</span><span class="Special">,</span> lty <span class="Statement">=</span> <span class="Constant">1</span><span class="Special">:</span><span class="Constant">4</span><span class="Special">)</span><span class="Special">;</span>
+<span id="L208" class="LineNr">208 </span>
+<span id="L209" class="LineNr">209 </span><span class="Error">}</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
